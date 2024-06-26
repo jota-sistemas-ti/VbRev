@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\ILMerge.3.0.41\build\ILMerge.props" Condition="Exists('..\packages\ILMerge.3.0.41\build\ILMerge.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{DCC3199D-4B9A-4E75-B3C4-11F1E8A2ACC8}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VbRevUi</RootNamespace>
+    <AssemblyName>VbRevUi</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <MyType>Custom</MyType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>true</IncrementalBuild>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>VbRevUi.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>false</IncrementalBuild>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>VbRevUi.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>middleware_48.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>VbRevUi.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>VbRevUi.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\VbRevShared\bin\Release\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Classes\UiHelper.vb" />
+    <Compile Include="Classes\ClientBase.vb" />
+    <Compile Include="Classes\CmdLineClient.vb" />
+    <Compile Include="Classes\IconHelper.vb" />
+    <Compile Include="Classes\NetworkAdapterClient.vb" />
+    <Compile Include="Classes\ProcessClient.vb" />
+    <Compile Include="Classes\ServiceClient.vb" />
+    <Compile Include="Classes\UI\CmdLineTabVM.vb" />
+    <Compile Include="Classes\UI\TabPage.vb" />
+    <Compile Include="Windows\RenameWindow.xaml.vb">
+      <DependentUpon>RenameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\StartProcessWindow.xaml.vb">
+      <DependentUpon>StartProcessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Tab Pages\CmdTabItemHeader.xaml.vb">
+      <DependentUpon>CmdTabItemHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\UI\FileBreadcrumbItem.vb" />
+    <Compile Include="Classes\FileSystemClient.vb" />
+    <Compile Include="Classes\UI\FileSystemItemVM.vb" />
+    <Compile Include="Classes\UI\FileTransferItemVM.vb" />
+    <Compile Include="Classes\UserSettings.vb" />
+    <Compile Include="Classes\VbRevClient.vb" />
+    <Compile Include="Windows\AboutWindow.xaml.vb">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Tab Pages\CmdLinePage.xaml.vb">
+      <DependentUpon>CmdLinePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Tab Pages\CmdLineTabItem.xaml.vb">
+      <DependentUpon>CmdLineTabItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Tab Pages\FileSystemPage.xaml.vb">
+      <DependentUpon>FileSystemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MachineInfoWindow.xaml.vb">
+      <DependentUpon>MachineInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.vb">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Application.xaml.vb">
+      <DependentUpon>Application.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\OptionsWindow.xaml.vb">
+      <DependentUpon>OptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Tab Pages\NetworkingPage.xaml.vb">
+      <DependentUpon>NetworkingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Tab Pages\ProcessPage.xaml.vb">
+      <DependentUpon>ProcessPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Tab Pages\RegistryPage.xaml.vb">
+      <DependentUpon>RegistryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Tab Pages\ServicesPage.xaml.vb">
+      <DependentUpon>ServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TransferFilesWindow.xaml.vb">
+      <DependentUpon>TransferFilesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserInfoWindow.xaml.vb">
+      <DependentUpon>UserInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Windows\RenameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\StartProcessWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Tab Pages\CmdTabItemHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Tab Pages\CmdLinePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Tab Pages\CmdLineTabItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Tab Pages\FileSystemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MachineInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\OptionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Tab Pages\NetworkingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Tab Pages\ProcessPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Tab Pages\RegistryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Tab Pages\ServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TransferFilesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Shapes" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Navigation" />
+    <Import Include="VbRevShared" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWpfExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.WPF.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <AppDesigner Include="My Project\" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="middleware_48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\refresh_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\window_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\window_info_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\window_close_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AboutLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\VbRevSplash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VbRevShared\VbRevShared.vbproj">
+      <Project>{143e457c-c577-421c-884a-6b2580688958}</Project>
+      <Name>VbRevShared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconShock\monitor_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\icons8_windows_client.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\monitor_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\access_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\windows_client_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\monitor_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\person_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\disconnected_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\up_down_arrow_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\cancel_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\ok_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconShock\new_window_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\replay_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\restart_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\search_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\settings_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\folder_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\hdd_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\document_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\icons8_more_info.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\group_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\icons8_administrative_tools.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\icons8_about.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons8\network_card_16px.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\ILMerge.3.0.41\build\ILMerge.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILMerge.3.0.41\build\ILMerge.props'))" />
+    <Error Condition="!Exists('..\packages\ILMerge.MSBuild.Task.1.0.7\build\ILMerge.MSBuild.Task.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILMerge.MSBuild.Task.1.0.7\build\ILMerge.MSBuild.Task.targets'))" />
+  </Target>
+  <Import Project="..\packages\ILMerge.MSBuild.Task.1.0.7\build\ILMerge.MSBuild.Task.targets" Condition="Exists('..\packages\ILMerge.MSBuild.Task.1.0.7\build\ILMerge.MSBuild.Task.targets')" />
+</Project>
